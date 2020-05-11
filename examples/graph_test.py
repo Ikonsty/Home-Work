@@ -6,4 +6,4 @@ words = [[(0, 0), (4, 3)], [(5, 8), (5, 9), (4, 11)], [(2, 13), (-7, 21), (-12, 
 g1 = Graph(words)
 g1.draw()
 g1.save('test_graph')
-# print(g1[0])
+# print(g1[(0, 1)])

@@ -100,5 +100,3 @@ class Array2D:
             "Array subscript out of range."
         array_1d = self.rows[row]
         array_1d[col] = value
-                return  # exit immediately
-        raise ValueError("value not found")  # only reached if no match

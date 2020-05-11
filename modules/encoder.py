@@ -93,7 +93,7 @@ def create_related_points(points, key_symbol):
 
 def main():
     keys = read_letter_keys_file('letter_key.txt')
-    points = message_to_points("I AM BEAUTIFUL WITH YOU", keys)
+    points = message_to_points("I AM BEAUTIFUL WITH YOU. EVEN IN THE DARKEST PART OF ME", keys)
     print(points)
     print()
     points = create_related_points(points, (3, 3, 0))
