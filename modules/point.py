@@ -28,8 +28,8 @@ class Point:
         ypoint3 = ypoint3 + other_point.y
         return self.move(round(xpoint3), round(ypoint3))
 
-if __name__ == "__main__":
-    point1 = Point(4, 12)
-    point2 = Point(1, 1)
-    point1.rotate(0, point2)
-    print(point1.x, point1.y)
+    def __str__(self):
+        return "({},{})".format(self.x, self.y)
+
+    def __repr__(self):
+        return "({},{})".format(self.x, self.y)
