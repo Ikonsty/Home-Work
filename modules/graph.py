@@ -1,6 +1,7 @@
 import sys
 sys.path.append('/home/ilya/Документи/UCU/CS/CourseWork/')
 from modules.point import Point
+from modules.arrays import Array2D
 import matplotlib.pyplot as plt
 
 
