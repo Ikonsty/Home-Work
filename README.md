@@ -51,4 +51,6 @@ rotate - обертання однієї точки навколо іншої
 
 ## Опис текстових прикладів.
 З одним набором ключів фраза "I AM BEAUTIFUL WITH YOU" зображується таким чином:
-![alt text](https://github.com/ikonsty/Home-Work/examples/master/test_graph.png?raw=true)
+![test_graph_1](https://github.com/ikonsty/Home-Work/examples/master/test_graph.png)
+Та ж фраза з іншими ключами має зовсім інакший вигляд:
+![test_graph_2](https://github.com/ikonsty/Home-Work/examples/master/test_graph_2.png?raw=true)
