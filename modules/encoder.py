@@ -92,8 +92,63 @@ def create_related_points(points, key_symbol):
     return all_points
 
 def main():
-    keys = read_letter_keys_file('letter_key.txt')
-    points = message_to_points("I AM BEAUTIFUL WITH YOU. EVEN IN THE DARKEST PART OF ME", keys)
+    keys = read_letter_keys_file('letter_key_part2.txt')
+    text = """I stare, at the girl in the mirror
+    T-shirt, torn up jeans, no beauty queen
+    But the way that you see me
+    You get underneath me
+    And all my defenses
+    Just fall away, fall away
+
+    I am beautiful with you
+    Even in the darkest part of me
+    I am beautiful with you
+    You make it feel the way it's supposed to be
+    You're here with me
+    Just show me this and I believe
+    I am beautiful with you
+
+    I stand naked before you now
+    No walls to hide behind, so here am I
+    You see all of my scars
+    Still here you are
+    I bare my soul
+    And I'm not afraid, not afraid
+
+    I am beautiful with you
+    Even in the darkest part of me
+    I am beautiful with you
+    You make it feel the way it's supposed to be
+    You're here with me
+    You show me this and I believe
+    I am beautiful with you
+
+    I've been the strong one for so long
+    But I was wrong
+    Doesn't make you weak if you're needing someone
+    I'm not holding back (yeah)
+    I know what I want
+
+    I am beautiful with you
+    I am beautiful with you
+    You want me for myself
+    You get me like no one else
+    I am beautiful with you
+
+    I am beautiful with you
+    Even in the darkest part of me
+    I am beautiful with you
+    You make it feel the way it's supposed to be
+    You're here with me
+    You show me this and I believe
+    That I am beautiful with you"""
+
+    text = text.replace("\n", " ")
+    text = text.replace("\t", " ")
+    text = text.replace("     ", " ")
+    ' '.join(text.split())
+    # print(text)
+    points = message_to_points(text, keys)
     print(points)
     print()
     points = create_related_points(points, (3, 3, 0))
