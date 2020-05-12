@@ -59,6 +59,10 @@ Png зображення, записане у файл, чи малюнок, щ�
 
 ![test_graph_1](https://github.com/ikonsty/Home-Work/examples/blob/master/test_graph.png?raw=true)
 
+<br>
+<img height="700" src="https://github.com/ikonsty/Home-Work/examples/blob/master/test_graph.png" />
+<br>
+
 Та ж фраза з іншими ключами має зовсім інакший вигляд:
 
 ![test_graph_2](https://github.com/ikonsty/Home-Work/examples/blob/master/test_graph_2.png?raw=true)
