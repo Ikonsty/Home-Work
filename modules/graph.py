@@ -111,7 +111,7 @@ class Graph:
                     y1.append(self.graph[(i, j)][1])
 
             plt.plot(x1, y1, 'b', marker='o')
-        plt.savefig(filename)
+        plt.savefig(filename, dpi=300)
 
 def find_max(pos, lst):
     """

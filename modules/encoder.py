@@ -23,6 +23,20 @@ def read_letter_keys_file(filename):
         keys[l1[0]] = (int(tup_l), int(tup_r))
     return keys
 
+def read_file_data(filename):
+    """
+    str -> str
+    Read the txt file and return string with content of it
+    """
+    f = open(filename, 'r')
+    fl_data = f.readlines()
+    data = ''
+    for ln in fl_data:
+        l1 = ln.rstrip().split(" ")
+        data += ' '.join(l1) + ' '
+    return data
+
+
 def message_to_points(message, keys):
     """
     str, dict -> lst[lst]
@@ -38,7 +52,8 @@ def message_to_points(message, keys):
             if let not in keys:
                 continue
             word_point.append(keys[let])
-        points.append(word_point)
+        if len(word_point) > 0:
+            points.append(word_point)
         word_point = []
     return points
 
@@ -73,7 +88,7 @@ def create_related_points(points, key_symbol):
 
             i += 1
             # angle += _alpha
-            print(let_angle)
+            # print(let_angle)
 
         all_points.append(related_points)
 
@@ -92,69 +107,60 @@ def create_related_points(points, key_symbol):
     return all_points
 
 def main():
-    keys = read_letter_keys_file('letter_key_part2.txt')
-    text = """I stare, at the girl in the mirror
-    T-shirt, torn up jeans, no beauty queen
-    But the way that you see me
-    You get underneath me
-    And all my defenses
-    Just fall away, fall away
+    keys = read_letter_keys_file('letter_key.txt')
 
-    I am beautiful with you
-    Even in the darkest part of me
-    I am beautiful with you
-    You make it feel the way it's supposed to be
-    You're here with me
-    Just show me this and I believe
-    I am beautiful with you
+    print("This program will convert your text into Graph")
+    print("Do you want to chose text file or write by yourself instead?")
+    print("-file")
+    print("-text")
+    choise = input("Your choise: ")
 
-    I stand naked before you now
-    No walls to hide behind, so here am I
-    You see all of my scars
-    Still here you are
-    I bare my soul
-    And I'm not afraid, not afraid
+    while True:
+        if choise == "file":
+            filename = input("Give the name of file: ")
+            try:
+                text = read_file_data(filename)
+            except FileNotFoundError:
+                print("File does not exist")
+                continue
+            break
 
-    I am beautiful with you
-    Even in the darkest part of me
-    I am beautiful with you
-    You make it feel the way it's supposed to be
-    You're here with me
-    You show me this and I believe
-    I am beautiful with you
+        elif choise == "text":
+            massege = input("Give text to convertation: ")
+            text = ' '.join(massege.split())
+            break
 
-    I've been the strong one for so long
-    But I was wrong
-    Doesn't make you weak if you're needing someone
-    I'm not holding back (yeah)
-    I know what I want
+        print()
+        print("You need to write 'file' or 'text'")
+        print("-file")
+        print("-text")
+        choise = input("Your choise: ")
 
-    I am beautiful with you
-    I am beautiful with you
-    You want me for myself
-    You get me like no one else
-    I am beautiful with you
-
-    I am beautiful with you
-    Even in the darkest part of me
-    I am beautiful with you
-    You make it feel the way it's supposed to be
-    You're here with me
-    You show me this and I believe
-    That I am beautiful with you"""
-
-    text = text.replace("\n", " ")
-    text = text.replace("\t", " ")
-    text = text.replace("     ", " ")
-    ' '.join(text.split())
-    # print(text)
-    points = message_to_points(text, keys)
-    print(points)
     print()
-    points = create_related_points(points, (3, 3, 0))
-    print(points)
-    chiper_graph = Graph(points)
-    chiper_graph.draw()
+    print("Do you want to see graph or dawnload png?")
+    print("-window")
+    print("-file")
+    choise = input("Your choise: ")
+    while True:
+        points = message_to_points(text, keys)
+        points = create_related_points(points, (3, 3, 0))
+        chiper_graph = Graph(points)
+
+        if choise == "window":
+            chiper_graph.draw()
+            break
+        elif choise == "file":
+            filename = input("Give a filename: ")
+            filename += ".png"
+            chiper_graph.save(filename)
+            print("Your file was created")
+            break
+        print()
+        print("Do you want to see graph or dawnload png?")
+        print("-window")
+        print("-file")
+        choise = input("Your choise: ")
+    print("Thanks for using this program!")
 
 if __name__ == "__main__":
     main()
