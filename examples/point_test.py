@@ -1,5 +1,5 @@
-import sys
-sys.path.append('/home/ilya/Документи/UCU/CS/CourseWork/')
+# import sys
+# sys.path.append('../CourseWork/')
 from modules.point import Point
 
 point1 = Point(4, 12)
